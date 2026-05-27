@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --c: #1D9E75; --ch: #178A64; --cs: #E8F7F2; --cd: #0D5C42;
+  --fg: #1A1A1A; --fg2: #6B6B6B; --fg3: #ABABAB;
+  --bg: #fff; --surf: #F5F5F2; --surf2: #EBEBEA;
+  --bdr: rgba(0,0,0,0.07);
+  --r: 14px; --r-sm: 8px; --r-lg: 22px; --r-f: 999px;
+  --font: 'Inter', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #C8C8C2;
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Phone frame */
+.phone {
+  width: 393px; height: 852px;
+  background: #1C1C1E;
+  border-radius: 52px;
+  padding: 12px;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow:
+    0 60px 120px rgba(0,0,0,.55),
+    0 16px 40px rgba(0,0,0,.3),
+    inset 0 0 0 1px rgba(255,255,255,.1);
+}
+
+/* Volume buttons */
+.phone::before {
+  content: '';
+  position: absolute;
+  left: -3px; top: 116px;
+  width: 4px; height: 40px;
+  background: #2A2A2C; border-radius: 2px;
+  box-shadow: 0 58px 0 #2A2A2C, 0 104px 0 #2A2A2C;
+}
+
+/* Power button */
+.phone::after {
+  content: '';
+  position: absolute;
+  right: -3px; top: 168px;
+  width: 4px; height: 72px;
+  background: #2A2A2C; border-radius: 2px;
+}
+
+.phone-screen {
+  width: 100%; height: 100%;
+  background: var(--bg);
+  border-radius: 42px;
+  overflow: hidden;
+  position: relative;
+}
+
+.notch {
+  position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 126px; height: 37px;
+  background: #1C1C1E;
+  border-radius: 0 0 24px 24px;
+  z-index: 500; pointer-events: none;
+}
+
+/* Screen views */
+.view {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  background: var(--bg);
+}
+
+.scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.scroll::-webkit-scrollbar { display: none; }
+
+/* Animations */
+@keyframes fadeIn  { from { opacity: 0 } to { opacity: 1 } }
+@keyframes slideUp { from { transform: translateY(18px); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes riseUp  { from { transform: translateY(36px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+@keyframes dropIn  { from { transform: translateY(-110%); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+
+.su { animation: slideUp 360ms var(--ease) both; }
+.fi { animation: fadeIn 280ms var(--ease) both; }
