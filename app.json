@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "BASE",
+    "slug": "base-fitness",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "base",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.base.fitness"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
